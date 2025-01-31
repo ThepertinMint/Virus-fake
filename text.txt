@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HACK.EXE</title>
+    <style>
+        body {
+            background-color: black;
+            color: green;
+            font-family: "Courier New", monospace;
+            font-size: 18px;
+            text-align: center;
+            padding: 20px;
+        }
+        .hacker-text {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid green;
+            display: inline-block;
+            width: 0;
+            animation: typing 5s steps(40, end) forwards, blink 0.5s infinite;
+        }
+        @keyframes typing {
+            to { width: 100%; }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        .flash {
+            animation: flash 0.2s infinite;
+        }
+        @keyframes flash {
+            0% { background-color: black; }
+            50% { background-color: red; }
+            100% { background-color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="hacker-text">Initializing Hack.exe...</h1>
+    <p id="status"></p>
+
+    <script>
+        // List of fake error messages
+        let messages = [
+            "WARNING: System Breach Detected!",
+            "Deleting System32... Please wait...",
+            "NSA is watching you...",
+            "Encrypting all files... 95% complete",
+            "Self-destruct initiated in 10 seconds...",
+            "Virus Downloading... 99%",
+            "BIOS Error! Resetting all drives...",
+            "RAM Overload: 666% Usage",
+            "Firewall Breached! Government Access Granted...",
+            "System overheating... Melting GPU..."
+        ];
+
+        // Websites to open randomly
+        let websites = [
+            "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // Rickroll 😂
+            "https://theuselessweb.com/",
+            "https://hackertyper.com/",
+            "https://cat-bounce.com/",
+            "https://pointerpointer.com/"
+        ];
+
+        // Sound effects
+        function playSound() {
+            let sound = new Audio("https://www.myinstants.com/media/sounds/windows-error.mp3");
+            sound.play();
+        }
+
+        // Show random messages
+        function showRandomMessage() {
+            alert(messages[Math.floor(Math.random() * messages.length)]);
+            playSound();
+        }
+
+        // Open random scary websites
+        function openRandomWebsite() {
+            window.open(websites[Math.floor(Math.random() * websites.length)], "_blank");
+        }
+
+        // Fake Hacking Effect
+        function fakeHacking() {
+            let status = document.getElementById("status");
+            let percent = 0;
+
+            let hackInterval = setInterval(() => {
+                percent += Math.floor(Math.random() * 10);
+                if (percent > 100) percent = 100;
+                status.innerText = "Hacking progress: " + percent + "% complete";
+
+                if (percent === 100) {
+                    clearInterval(hackInterval);
+                    document.body.classList.add("flash");
+                    setTimeout(() => alert("Just kidding! 😆 This was a prank!"), 2000);
+                }
+            }, 500);
+        }
+
+        // Crazy shaking screen effect
+        function shakeScreen() {
+            let x = Math.random() * 10;
+            let y = Math.random() * 10;
+            window.moveBy(x, y);
+        }
+
+        // Make cursor disappear for 10 seconds
+        function disableMouse() {
+            document.body.style.cursor = "none";
+            setTimeout(() => {
+                document.body.style.cursor = "default";
+            }, 10000);
+        }
+
+        // Loop for maximum chaos
+        function infiniteLoop() {
+            setInterval(showRandomMessage, 3000);
+            setInterval(openRandomWebsite, 7000);
+            setInterval(shakeScreen, 100);
+            setInterval(disableMouse, 20000);
+        }
+
+        // Start prank after 5 seconds
+        setTimeout(fakeHacking, 3000);
+        setTimeout(infiniteLoop, 5000);
+    </script>
+
+</body>
+</html>
